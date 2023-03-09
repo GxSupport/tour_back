@@ -25,7 +25,10 @@ class StoreRequest extends FormRequest
             'sale'=>'nullable|numeric|min:1|max:99',
             'is_active'=>'nullable|integer|in:0,1',
             'is_popular'=>'nullable|integer|in:0,1',
-            'images_token'=>'required|array'
+            'images_token'=>'required|array',
+            'images_token.*'=>'required|string',
+            'category'=>'required|array',
+            'category.*'=>'required|integer|exists:categories,id'
         ];
     }
 }

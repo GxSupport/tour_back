@@ -23,6 +23,7 @@ Route::get('category',[CategoryController::class,'index']);
 Route::get('country',[CountryController::class,'index']);
 Route::prefix('tour')->controller(TourController::class)->group(function (){
     Route::get('', 'index');
+    Route::get('show/{id}', 'show');
     Route::get('popular','popular');
     Route::get('sale','sale');
 });
@@ -33,11 +34,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout','logout');
         Route::post('refresh-token','refreshToken');
     });
-    Route::prefix('tour')->controller(TourController::class)->group(function (){
-        Route::post('store', 'store');
-        Route::put('update','update');
-    });
     Route::post('upload',[UploadController::class,'upload']);
+    Route::apiResource('tour',TourController::class,['only' => ['store','update']]);
     Route::apiResource('category',CategoryController::class,['except' => 'index']);
     Route::apiResource('country',CountryController::class,['except' => 'index']);
 });

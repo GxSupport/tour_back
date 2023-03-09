@@ -25,6 +25,10 @@ class UpdateRequest extends FormRequest
             'sale'=>'nullable|numeric|min:1|max:99',
             'is_active'=>'nullable|integer|in:0,1',
             'is_popular'=>'nullable|integer|in:0,1',
+            'images_token'=>'nullable|array',
+            'images_token.*'=>'nullable|string',
+            'category'=>'nullable|array',
+            'category.*'=>'nullable|integer|exists:categories,id'
         ];
     }
 }

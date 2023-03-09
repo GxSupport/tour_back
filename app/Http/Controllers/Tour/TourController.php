@@ -14,17 +14,16 @@ class TourController extends Controller
 {
     public function popular()
     {
-        $tour = Tour::popular()->get();
+        $tour = Tour::active()->popular()->with('images','category')->get();
         return new TourResource($tour);
     }
 
     public function sale()
     {
-        $tour = Tour::sale()->get();
+        $tour = Tour::active()->sale()->with('images','category')->get();
         return new TourResource($tour);
     }
 
-//    filterni oxiriga yetkazish kerak
     public function index(Request $request)
     {
         $tour = Tour::filter($request->all())->get();
@@ -35,6 +34,12 @@ class TourController extends Controller
     {
         $tour = Tour::findOrFail($id);
         $tour->update($request->validated());
+        return new TourResource($tour);
+    }
+
+    public function show($id)
+    {
+        $tour = Tour::active()->with('images','category')->find($id);
         return new TourResource($tour);
     }
 
@@ -53,10 +58,18 @@ class TourController extends Controller
         $tour->is_active=$request->is_active;
         $tour->is_popular=$request->is_popular;
         $tour->save();
-        $this->attach($tour->id,$request->images_token);
-        return $tour;
+        $this->attachImages($tour->id,$request->images_token);
+        $this->attachCategory($tour->id,$request->category);
+        return $this->show($tour->id);
     }
-    public function attach($tour_id,array $token):void
+
+    public function attachCategory($tour_id, array $categories):void
+    {
+        $tour = Tour::find($tour_id);
+        $tour->category()->sync($categories);
+    }
+
+    public function attachImages($tour_id,array $token):void
     {
         $tour = Tour::find($tour_id);
         $imagesId = $this->getImagesId($token);
