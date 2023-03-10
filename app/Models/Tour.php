@@ -58,7 +58,9 @@ class Tour extends Model
         }
         if(isset($filter['category_id']) && !is_null($filter['category_id']))
         {
-            $query->where('category_id',$filter['category_id']);
+            $query->whereHas('category', function($q) use ($filter) {
+                $q->where('category_id', $filter['category_id']);
+            });
         }
         return $query;
     }
