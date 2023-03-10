@@ -1,0 +1,270 @@
+name: Category
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/category
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Category-listi
+      description: '@urlParam search string nullable izlash uchun'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      search:
+        name: search
+        description: 'Izlash uchun key.'
+        required: false
+        example: nimadir
+        type: string
+        custom: []
+    cleanBodyParameters:
+      search: nimadir
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/category
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Category yaratish'
+      description: '@authenticated'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name_ru:
+        name: name_ru
+        description: 'name RU. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      name_uz:
+        name: name_uz
+        description: 'name UZ. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      name_en:
+        name: name_en
+        description: 'name EN. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      is_active:
+        name: is_active
+        description: 'Aktivligi(1-aktiv,0-aktiv emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+        required: false
+        example: '1'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name_ru: Uzbekistan
+      name_uz: Uzbekistan
+      name_en: Uzbekistan
+      is_active: '1'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/category/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Category ni id orqali olish'
+      description: '@urlParam id integer required. Categoryni id si'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/category/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Category yangilash(update)'
+      description: '@urlParam id integer required. Category ni id si'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name_ru:
+        name: name_ru
+        description: 'name RU. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      name_uz:
+        name: name_uz
+        description: 'name UZ. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      name_en:
+        name: name_en
+        description: 'name EN. Must be at least 2 characters.'
+        required: true
+        example: Uzbekistan
+        type: string
+        custom: []
+      is_active:
+        name: is_active
+        description: 'Aktivligi(1-aktiv,0-aktiv emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+        required: false
+        example: '1'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name_ru: Uzbekistan
+      name_uz: Uzbekistan
+      name_en: Uzbekistan
+      is_active: '1'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/category/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Category o''chirish'
+      description: '@urlParam id integer required. Categoryni id si'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

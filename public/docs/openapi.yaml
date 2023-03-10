@@ -1,0 +1,2140 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://back.tour.gx.uz'
+paths:
+  /api/login:
+    post:
+      summary: login
+      operationId: login
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: Email.
+                  example: admin@admin.com
+                password:
+                  type: string
+                  description: 'Parol. Must be at least 6 characters.'
+                  example: '123456'
+              required:
+                - email
+                - password
+      security: []
+  /api/refresh-token:
+    post:
+      summary: refresh-token
+      operationId: refreshToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                  description: 'refresh token.'
+                  example: AiOiJKV1QiLCJhbGciOiJSUzI1NiJ9
+              required:
+                - refresh_token
+      security: []
+  /api/logout:
+    get:
+      summary: logout
+      operationId: logout
+      description: '@authenticated'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Auth
+      security: []
+  /api/category:
+    get:
+      summary: Category-listi
+      operationId: categoryListi
+      description: '@urlParam search string nullable izlash uchun'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Category
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search:
+                  type: string
+                  description: 'Izlash uchun key.'
+                  example: nimadir
+      security: []
+    post:
+      summary: 'Category yaratish'
+      operationId: categoryYaratish
+      description: '@authenticated'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'name RU. Must be at least 2 characters.'
+                  example: Uzbekistan
+                name_uz:
+                  type: string
+                  description: 'name UZ. Must be at least 2 characters.'
+                  example: Uzbekistan
+                name_en:
+                  type: string
+                  description: 'name EN. Must be at least 2 characters.'
+                  example: Uzbekistan
+                is_active:
+                  type: string
+                  description: 'Aktivligi(1-aktiv,0-aktiv emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+                  example: '1'
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+      security: []
+  '/api/category/{id}':
+    get:
+      summary: 'Category ni id orqali olish'
+      operationId: categoryNiIdOrqaliOlish
+      description: '@urlParam id integer required. Categoryni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Category
+      security: []
+    put:
+      summary: 'Category yangilash(update)'
+      operationId: categoryYangilashupdate
+      description: '@urlParam id integer required. Category ni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'name RU. Must be at least 2 characters.'
+                  example: Uzbekistan
+                name_uz:
+                  type: string
+                  description: 'name UZ. Must be at least 2 characters.'
+                  example: Uzbekistan
+                name_en:
+                  type: string
+                  description: 'name EN. Must be at least 2 characters.'
+                  example: Uzbekistan
+                is_active:
+                  type: string
+                  description: 'Aktivligi(1-aktiv,0-aktiv emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+                  example: '1'
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+    delete:
+      summary: 'Category o''chirish'
+      operationId: categoryOchirish
+      description: '@urlParam id integer required. Categoryni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Category
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/config:
+    post:
+      summary: 'Config Save'
+      operationId: configSave
+      description: '@authenticated'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Config (Sayt haqidagi ma''lumotlar)'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: 'Saytgadi asosiy ma`lumotlarni saqlab turish uchun istalgan key.'
+                  example: phone
+                name_ru:
+                  type: string
+                  description: 'keyni qiymati RU.'
+                  example: '+998945890598'
+                name_uz:
+                  type: string
+                  description: 'keyni qiymati UZ.'
+                  example: '+998945890598'
+                name_en:
+                  type: string
+                  description: 'keyni qiymati EN.'
+                  example: '+998945890598'
+              required:
+                - key
+                - name_ru
+                - name_uz
+                - name_en
+      security: []
+  '/api/config/{id}':
+    put:
+      summary: 'Config update'
+      operationId: configUpdate
+      description: '@urlParam id integer required. Configni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Config (Sayt haqidagi ma''lumotlar)'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: 'Saytgadi asosiy ma`lumotlarni saqlab turish uchun istalgan key.'
+                  example: phone
+                name_ru:
+                  type: string
+                  description: 'keyni qiymati RU.'
+                  example: '+998945890598'
+                name_uz:
+                  type: string
+                  description: 'keyni qiymati UZ.'
+                  example: '+998945890598'
+                name_en:
+                  type: string
+                  description: 'keyni qiymati EN.'
+                  example: '+998945890598'
+              required:
+                - key
+                - name_ru
+                - name_uz
+                - name_en
+    delete:
+      summary: 'Config delete'
+      operationId: configDelete
+      description: '@urlParam id integer required. Configni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Config (Sayt haqidagi ma''lumotlar)'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the config.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  /api/country:
+    get:
+      summary: 'Country ni id orqali olish'
+      operationId: countryNiIdOrqaliOlish
+      description: '@urlParam search string optional.Izlash(search) uchun'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Country
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search:
+                  type: string
+                  description: 'Izlash uchun nimadir.'
+                  example: admin
+      security: []
+    post:
+      summary: 'Country yaratish'
+      operationId: countryYaratish
+      description: '@authenticated'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Country
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'country nomi RU. Must be at least 2 characters.'
+                  example: Asia
+                name_uz:
+                  type: string
+                  description: 'country nomi UZ. Must be at least 2 characters.'
+                  example: Asia
+                name_en:
+                  type: string
+                  description: 'country nomi EN. Must be at least 2 characters.'
+                  example: Asia
+                is_active:
+                  type: string
+                  description: 'activligi (default-0,1-aktiv,0-aktiv emas). Must be one of <code>0</code> or <code>1</code>.'
+                  example: '1'
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+      security: []
+  '/api/country/{id}':
+    get:
+      summary: 'Country ni id orqali olish'
+      operationId: countryNiIdOrqaliOlish
+      description: '@urlParam id integer required.Country id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Country
+      security: []
+    put:
+      summary: 'Country ni yangilash(update)'
+      operationId: countryNiYangilashupdate
+      description: '@urlParam id integer required.Country ni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Country
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'country nomi RU. Must be at least 2 characters.'
+                  example: Asia
+                name_uz:
+                  type: string
+                  description: 'country nomi UZ. Must be at least 2 characters.'
+                  example: Asia
+                name_en:
+                  type: string
+                  description: 'country nomi EN. Must be at least 2 characters.'
+                  example: Asia
+                is_active:
+                  type: string
+                  description: 'activligi (default-0,1-aktiv,0-aktiv emas). Must be one of <code>0</code> or <code>1</code>.'
+                  example: '1'
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+    delete:
+      summary: 'Country ni o''chirish'
+      operationId: countryNiOchirish
+      description: '@urlParam id integer required.Countryni id si'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Country
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the country.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/tour:
+    get:
+      summary: 'Tour listi && filter bilan'
+      operationId: tourListiFilterBilan
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The selected country id is invalid.'
+                  errors:
+                    country_id:
+                      - 'The selected country id is invalid.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The selected country id is invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      country_id:
+                        type: array
+                        example:
+                          - 'The selected country id is invalid.'
+                        items:
+                          type: string
+      tags:
+        - Tour
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_id:
+                  type: string
+                  description: 'Country ni id si.'
+                  example: '1'
+                sale:
+                  type: string
+                  description: 'Chegirmadagilarni olish(1-chegirmadagilarni olish,yuborilmasa hammasini oladi). Must be one of <code>1</code>.'
+                  example: '1'
+                category_id:
+                  type: string
+                  description: ''
+                  example: null
+      security: []
+    post:
+      summary: 'Tour yaratish'
+      operationId: tourYaratish
+      description: '@authenticated'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Tour
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu
+                name_uz:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld
+                name_en:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr
+                description_ru:
+                  type: string
+                  description: 'Must be at least 10 characters.'
+                  example: cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs
+                description_uz:
+                  type: string
+                  description: 'Must be at least 10 characters.'
+                  example: qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu
+                description_en:
+                  type: string
+                  description: 'Must be at least 10 characters.'
+                  example: dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh
+                price:
+                  type: number
+                  description: 'Must be at least 1. Must not be greater than 99999999999999.99.'
+                  example: 16
+                country_id:
+                  type: string
+                  description: ''
+                  example: est
+                sale:
+                  type: number
+                  description: 'Must be at least 1. Must not be greater than 99.'
+                  example: 19
+                is_active:
+                  type: integer
+                  description: 'Must be one of <code>0</code> or <code>1</code>.'
+                  example: '1'
+                is_popular:
+                  type: integer
+                  description: 'Must be one of <code>0</code> or <code>1</code>.'
+                  example: '0'
+                images_token:
+                  type: array
+                  description: ''
+                  example:
+                    - molestias
+                  items:
+                    type: string
+                category:
+                  type: array
+                  description: ''
+                  example:
+                    - 2
+                  items:
+                    type: integer
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+                - description_ru
+                - description_uz
+                - description_en
+                - price
+                - country_id
+                - images_token
+                - category
+      security: []
+  '/api/tour/show/{id}':
+    get:
+      summary: 'Tour ni id orqali olish'
+      operationId: tourNiIdOrqaliOlish
+      description: '@urlParam id integer required.Tour id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Tour
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the show.'
+        example: incidunt
+        required: true
+        schema:
+          type: string
+  /api/tour/popular:
+    get:
+      summary: 'Tour popular listi'
+      operationId: tourPopularListi
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 9
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: 20
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T18:36:26.000000Z'
+                      updated_at: '2023-03-09T18:36:26.000000Z'
+                      sale_price: 1997197.6
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 9
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 9
+                            images_id: 4
+                      category: []
+                    -
+                      id: 10
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: null
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T18:37:50.000000Z'
+                      updated_at: '2023-03-09T18:37:50.000000Z'
+                      sale_price: null
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 10
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 10
+                            images_id: 4
+                      category: []
+                    -
+                      id: 11
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: null
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T20:29:22.000000Z'
+                      updated_at: '2023-03-09T20:29:22.000000Z'
+                      sale_price: null
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 11
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 11
+                            images_id: 4
+                      category: []
+                    -
+                      id: 12
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: null
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T20:30:38.000000Z'
+                      updated_at: '2023-03-09T20:30:38.000000Z'
+                      sale_price: null
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 12
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 12
+                            images_id: 4
+                      category: []
+                    -
+                      id: 13
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: null
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T20:30:57.000000Z'
+                      updated_at: '2023-03-09T20:30:57.000000Z'
+                      sale_price: null
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 13
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 13
+                            images_id: 4
+                      category: []
+                    -
+                      id: 14
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 3
+                      sale: 10
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T20:52:34.000000Z'
+                      updated_at: '2023-03-09T20:52:34.000000Z'
+                      sale_price: 998598.8
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 14
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 14
+                            images_id: 4
+                      category:
+                        -
+                          id: 1
+                          name_ru: rutest
+                          name_uz: u_test
+                          name_en: n_test
+                          is_active: 1
+                          created_at: '2023-03-09T09:36:47.000000Z'
+                          updated_at: '2023-03-09T11:02:24.000000Z'
+                          pivot:
+                            tours_id: 14
+                            category_id: 1
+                        -
+                          id: 2
+                          name_ru: eeeeeeeeeeeeee
+                          name_uz: hiji
+                          name_en: hbbhj
+                          is_active: 1
+                          created_at: null
+                          updated_at: null
+                          pivot:
+                            tours_id: 14
+                            category_id: 2
+                    -
+                      id: 15
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: null
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T21:02:48.000000Z'
+                      updated_at: '2023-03-09T21:02:48.000000Z'
+                      sale_price: null
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 15
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 15
+                            images_id: 4
+                      category:
+                        -
+                          id: 1
+                          name_ru: rutest
+                          name_uz: u_test
+                          name_en: n_test
+                          is_active: 1
+                          created_at: '2023-03-09T09:36:47.000000Z'
+                          updated_at: '2023-03-09T11:02:24.000000Z'
+                          pivot:
+                            tours_id: 15
+                            category_id: 1
+                        -
+                          id: 2
+                          name_ru: eeeeeeeeeeeeee
+                          name_uz: hiji
+                          name_en: hbbhj
+                          is_active: 1
+                          created_at: null
+                          updated_at: null
+                          pivot:
+                            tours_id: 15
+                            category_id: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: 20
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T18:36:26.000000Z'
+                        updated_at: '2023-03-09T18:36:26.000000Z'
+                        sale_price: 1997197.6
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 9
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 9
+                              images_id: 4
+                        category: []
+                      -
+                        id: 10
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: null
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T18:37:50.000000Z'
+                        updated_at: '2023-03-09T18:37:50.000000Z'
+                        sale_price: null
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 10
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 10
+                              images_id: 4
+                        category: []
+                      -
+                        id: 11
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: null
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T20:29:22.000000Z'
+                        updated_at: '2023-03-09T20:29:22.000000Z'
+                        sale_price: null
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 11
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 11
+                              images_id: 4
+                        category: []
+                      -
+                        id: 12
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: null
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T20:30:38.000000Z'
+                        updated_at: '2023-03-09T20:30:38.000000Z'
+                        sale_price: null
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 12
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 12
+                              images_id: 4
+                        category: []
+                      -
+                        id: 13
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: null
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T20:30:57.000000Z'
+                        updated_at: '2023-03-09T20:30:57.000000Z'
+                        sale_price: null
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 13
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 13
+                              images_id: 4
+                        category: []
+                      -
+                        id: 14
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 3
+                        sale: 10
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T20:52:34.000000Z'
+                        updated_at: '2023-03-09T20:52:34.000000Z'
+                        sale_price: 998598.8
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 14
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 14
+                              images_id: 4
+                        category:
+                          -
+                            id: 1
+                            name_ru: rutest
+                            name_uz: u_test
+                            name_en: n_test
+                            is_active: 1
+                            created_at: '2023-03-09T09:36:47.000000Z'
+                            updated_at: '2023-03-09T11:02:24.000000Z'
+                            pivot:
+                              tours_id: 14
+                              category_id: 1
+                          -
+                            id: 2
+                            name_ru: eeeeeeeeeeeeee
+                            name_uz: hiji
+                            name_en: hbbhj
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            pivot:
+                              tours_id: 14
+                              category_id: 2
+                      -
+                        id: 15
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: null
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T21:02:48.000000Z'
+                        updated_at: '2023-03-09T21:02:48.000000Z'
+                        sale_price: null
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 15
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 15
+                              images_id: 4
+                        category:
+                          -
+                            id: 1
+                            name_ru: rutest
+                            name_uz: u_test
+                            name_en: n_test
+                            is_active: 1
+                            created_at: '2023-03-09T09:36:47.000000Z'
+                            updated_at: '2023-03-09T11:02:24.000000Z'
+                            pivot:
+                              tours_id: 15
+                              category_id: 1
+                          -
+                            id: 2
+                            name_ru: eeeeeeeeeeeeee
+                            name_uz: hiji
+                            name_en: hbbhj
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            pivot:
+                              tours_id: 15
+                              category_id: 2
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 9
+                        name_ru:
+                          type: string
+                          example: '1111'
+                        name_uz:
+                          type: string
+                          example: '1111111'
+                        name_en:
+                          type: string
+                          example: '1111111'
+                        description_ru:
+                          type: string
+                          example: 'test decription'
+                        description_uz:
+                          type: string
+                          example: 'test decription'
+                        description_en:
+                          type: string
+                          example: 'test decription'
+                        price:
+                          type: integer
+                          example: 9985988
+                        country_id:
+                          type: integer
+                          example: 1
+                        sale:
+                          type: integer
+                          example: 20
+                        is_active:
+                          type: integer
+                          example: 1
+                        is_popular:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2023-03-09T18:36:26.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-03-09T18:36:26.000000Z'
+                        sale_price:
+                          type: number
+                          example: 1997197.6
+                        images:
+                          type: array
+                          example:
+                            -
+                              id: 5
+                              token: QeOFTlPXVyhyNMO
+                              name: QeOFTlPXVyhyNMO1678384041.png
+                              path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                              is_active: 0
+                              created_at: '2023-03-09T12:47:21.000000Z'
+                              updated_at: '2023-03-09T13:27:29.000000Z'
+                              pivot:
+                                tours_id: 9
+                                images_id: 5
+                            -
+                              id: 4
+                              token: PrcLTCgOpFNgOgY
+                              name: PrcLTCgOpFNgOgY1678383624.png
+                              path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                              is_active: 0
+                              created_at: '2023-03-09T12:40:24.000000Z'
+                              updated_at: '2023-03-09T13:27:29.000000Z'
+                              pivot:
+                                tours_id: 9
+                                images_id: 4
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 5
+                              token:
+                                type: string
+                                example: QeOFTlPXVyhyNMO
+                              name:
+                                type: string
+                                example: QeOFTlPXVyhyNMO1678384041.png
+                              path:
+                                type: string
+                                example: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                              is_active:
+                                type: integer
+                                example: 0
+                              created_at:
+                                type: string
+                                example: '2023-03-09T12:47:21.000000Z'
+                              updated_at:
+                                type: string
+                                example: '2023-03-09T13:27:29.000000Z'
+                              pivot:
+                                type: object
+                                properties:
+                                  tours_id:
+                                    type: integer
+                                    example: 9
+                                  images_id:
+                                    type: integer
+                                    example: 5
+                        category:
+                          type: array
+                          example: []
+      tags:
+        - Tour
+      security: []
+  /api/tour/sale:
+    get:
+      summary: 'Tour sale listi'
+      operationId: tourSaleListi
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 8
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 3
+                      sale: 20
+                      is_active: 1
+                      is_popular: 0
+                      created_at: '2023-03-09T18:32:10.000000Z'
+                      updated_at: '2023-03-09T18:32:10.000000Z'
+                      sale_price: 1997197.6
+                      images: []
+                      category: []
+                    -
+                      id: 9
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 1
+                      sale: 20
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T18:36:26.000000Z'
+                      updated_at: '2023-03-09T18:36:26.000000Z'
+                      sale_price: 1997197.6
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 9
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 9
+                            images_id: 4
+                      category: []
+                    -
+                      id: 14
+                      name_ru: '1111'
+                      name_uz: '1111111'
+                      name_en: '1111111'
+                      description_ru: 'test decription'
+                      description_uz: 'test decription'
+                      description_en: 'test decription'
+                      price: 9985988
+                      country_id: 3
+                      sale: 10
+                      is_active: 1
+                      is_popular: 1
+                      created_at: '2023-03-09T20:52:34.000000Z'
+                      updated_at: '2023-03-09T20:52:34.000000Z'
+                      sale_price: 998598.8
+                      images:
+                        -
+                          id: 5
+                          token: QeOFTlPXVyhyNMO
+                          name: QeOFTlPXVyhyNMO1678384041.png
+                          path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:47:21.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 14
+                            images_id: 5
+                        -
+                          id: 4
+                          token: PrcLTCgOpFNgOgY
+                          name: PrcLTCgOpFNgOgY1678383624.png
+                          path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                          is_active: 0
+                          created_at: '2023-03-09T12:40:24.000000Z'
+                          updated_at: '2023-03-09T13:27:29.000000Z'
+                          pivot:
+                            tours_id: 14
+                            images_id: 4
+                      category:
+                        -
+                          id: 1
+                          name_ru: rutest
+                          name_uz: u_test
+                          name_en: n_test
+                          is_active: 1
+                          created_at: '2023-03-09T09:36:47.000000Z'
+                          updated_at: '2023-03-09T11:02:24.000000Z'
+                          pivot:
+                            tours_id: 14
+                            category_id: 1
+                        -
+                          id: 2
+                          name_ru: eeeeeeeeeeeeee
+                          name_uz: hiji
+                          name_en: hbbhj
+                          is_active: 1
+                          created_at: null
+                          updated_at: null
+                          pivot:
+                            tours_id: 14
+                            category_id: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 8
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 3
+                        sale: 20
+                        is_active: 1
+                        is_popular: 0
+                        created_at: '2023-03-09T18:32:10.000000Z'
+                        updated_at: '2023-03-09T18:32:10.000000Z'
+                        sale_price: 1997197.6
+                        images: []
+                        category: []
+                      -
+                        id: 9
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 1
+                        sale: 20
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T18:36:26.000000Z'
+                        updated_at: '2023-03-09T18:36:26.000000Z'
+                        sale_price: 1997197.6
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 9
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 9
+                              images_id: 4
+                        category: []
+                      -
+                        id: 14
+                        name_ru: '1111'
+                        name_uz: '1111111'
+                        name_en: '1111111'
+                        description_ru: 'test decription'
+                        description_uz: 'test decription'
+                        description_en: 'test decription'
+                        price: 9985988
+                        country_id: 3
+                        sale: 10
+                        is_active: 1
+                        is_popular: 1
+                        created_at: '2023-03-09T20:52:34.000000Z'
+                        updated_at: '2023-03-09T20:52:34.000000Z'
+                        sale_price: 998598.8
+                        images:
+                          -
+                            id: 5
+                            token: QeOFTlPXVyhyNMO
+                            name: QeOFTlPXVyhyNMO1678384041.png
+                            path: storage/images/QeOFTlPXVyhyNMO1678384041.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:47:21.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 14
+                              images_id: 5
+                          -
+                            id: 4
+                            token: PrcLTCgOpFNgOgY
+                            name: PrcLTCgOpFNgOgY1678383624.png
+                            path: storage/images/PrcLTCgOpFNgOgY1678383624.png
+                            is_active: 0
+                            created_at: '2023-03-09T12:40:24.000000Z'
+                            updated_at: '2023-03-09T13:27:29.000000Z'
+                            pivot:
+                              tours_id: 14
+                              images_id: 4
+                        category:
+                          -
+                            id: 1
+                            name_ru: rutest
+                            name_uz: u_test
+                            name_en: n_test
+                            is_active: 1
+                            created_at: '2023-03-09T09:36:47.000000Z'
+                            updated_at: '2023-03-09T11:02:24.000000Z'
+                            pivot:
+                              tours_id: 14
+                              category_id: 1
+                          -
+                            id: 2
+                            name_ru: eeeeeeeeeeeeee
+                            name_uz: hiji
+                            name_en: hbbhj
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            pivot:
+                              tours_id: 14
+                              category_id: 2
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 8
+                        name_ru:
+                          type: string
+                          example: '1111'
+                        name_uz:
+                          type: string
+                          example: '1111111'
+                        name_en:
+                          type: string
+                          example: '1111111'
+                        description_ru:
+                          type: string
+                          example: 'test decription'
+                        description_uz:
+                          type: string
+                          example: 'test decription'
+                        description_en:
+                          type: string
+                          example: 'test decription'
+                        price:
+                          type: integer
+                          example: 9985988
+                        country_id:
+                          type: integer
+                          example: 3
+                        sale:
+                          type: integer
+                          example: 20
+                        is_active:
+                          type: integer
+                          example: 1
+                        is_popular:
+                          type: integer
+                          example: 0
+                        created_at:
+                          type: string
+                          example: '2023-03-09T18:32:10.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-03-09T18:32:10.000000Z'
+                        sale_price:
+                          type: number
+                          example: 1997197.6
+                        images:
+                          type: array
+                          example: []
+                        category:
+                          type: array
+                          example: []
+      tags:
+        - Tour
+      security: []
+  '/api/tour/{id}':
+    put:
+      summary: 'Tour yangilash(update)'
+      operationId: tourYangilashupdate
+      description: '@urlParam id integer required.Tour id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Tour
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_ru:
+                  type: string
+                  description: 'Tour nomi RU. Must be at least 2 characters.'
+                  example: Yozgi
+                name_uz:
+                  type: string
+                  description: 'Tour nomi UZ. Must be at least 2 characters.'
+                  example: Yozgi
+                name_en:
+                  type: string
+                  description: 'Tour nomi EN. Must be at least 2 characters.'
+                  example: Yozgi
+                description_ru:
+                  type: string
+                  description: 'tavsif RU. Must be at least 10 characters.'
+                  example: 'istalgan matn'
+                description_uz:
+                  type: string
+                  description: 'tavsif UZ. Must be at least 10 characters.'
+                  example: 'istalgan matn'
+                description_en:
+                  type: string
+                  description: 'tavsif EN. Must be at least 10 characters.'
+                  example: 'istalgan matn'
+                price:
+                  type: number
+                  description: 'narxi. Must be at least 1. Must not be greater than 99999999999999.99.'
+                  example: 4587884.0
+                country_id:
+                  type: string
+                  description: 'Country id si.'
+                  example: '1'
+                sale:
+                  type: number
+                  description: 'Skidka 15% bo`lsa faqat 15 yuboriladi. Must be at least 1. Must not be greater than 99.'
+                  example: 15.0
+                is_active:
+                  type: integer
+                  description: 'Aktivligi (1-aktiv,0-aktiv emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+                  example: 1
+                is_popular:
+                  type: integer
+                  description: 'Popularligi (1-popular,0-popular emas,default-0). Must be one of <code>0</code> or <code>1</code>.'
+                  example: 1
+                images_token:
+                  type: array
+                  description: ''
+                  example:
+                    - magni
+                  items:
+                    type: string
+                category:
+                  type: array
+                  description: ''
+                  example:
+                    - 9
+                  items:
+                    type: integer
+              required:
+                - name_ru
+                - name_uz
+                - name_en
+                - description_ru
+                - description_uz
+                - description_en
+                - price
+                - country_id
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tour.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Auth
+    description: ''
+  -
+    name: Category
+    description: ''
+  -
+    name: 'Config (Sayt haqidagi ma''lumotlar)'
+    description: ''
+  -
+    name: Country
+    description: ''
+  -
+    name: Tour
+    description: ''
