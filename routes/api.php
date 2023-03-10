@@ -29,11 +29,10 @@ Route::prefix('tour')->controller(TourController::class)->group(function (){
     Route::get('sale','sale');
 });
 
+Route::post('refresh-token',[LoginController::class,'refreshToken']);
 Route::group(['middleware' => 'auth:api'], function () {
-
     Route::controller(LoginController::class)->group(function () {
         Route::get('logout','logout');
-        Route::post('refresh-token','refreshToken');
     });
 
     Route::post('upload',[UploadController::class,'upload']);
