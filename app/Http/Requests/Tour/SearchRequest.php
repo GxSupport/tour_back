@@ -19,4 +19,18 @@ class SearchRequest extends FormRequest
             'category_id'=>'nullable|exists:categories,id'
         ];
     }
+
+    public function bodyParameters():array
+    {
+        return [
+            'country_id' => [
+                'description' => 'Country ni id si',
+                'example' => '1',
+            ],
+            'sale' => [
+                'description' => 'Chegirmadagilarni olish(1-chegirmadagilarni olish,yuborilmasa hammasini oladi)',
+                'example' => '1',
+            ]
+        ];
+    }
 }

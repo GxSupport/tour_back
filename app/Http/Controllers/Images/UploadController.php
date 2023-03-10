@@ -7,8 +7,15 @@ use App\Http\Requests\Images\UploadRequest;
 use App\Models\Images;
 use Illuminate\Support\Str;
 
+/**
+ * @group Images
+ */
 class UploadController extends Controller
 {
+    /**
+     *  Rasm yuklash uchun
+     *  @authenticated
+     */
     public function upload(UploadRequest $request)
     {
         $extension = $request->file('image')->getClientOriginalExtension();

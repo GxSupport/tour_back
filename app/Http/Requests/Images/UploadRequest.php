@@ -17,4 +17,14 @@ class UploadRequest extends FormRequest
             'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240'
         ];
     }
+
+    public function bodyParameters():array
+    {
+        return [
+            'image' => [
+                'description' => 'Istalgan rasm(Tour uchun)',
+                'example' => 'image.png',
+            ]
+        ];
+    }
 }

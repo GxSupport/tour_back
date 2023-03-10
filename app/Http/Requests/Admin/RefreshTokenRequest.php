@@ -17,4 +17,13 @@ class RefreshTokenRequest extends FormRequest
             'refresh_token'=>'required|string'
         ];
     }
+    public function bodyParameters():array
+    {
+        return [
+            'refresh_token' => [
+                'description' => 'refresh token',
+                'example' => 'AiOiJKV1QiLCJhbGciOiJSUzI1NiJ9'
+            ]
+        ];
+    }
 }

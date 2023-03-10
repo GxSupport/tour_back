@@ -8,14 +8,26 @@ use App\Http\Resources\Config\ConfigResource;
 use App\Models\Config;
 use Illuminate\Http\JsonResponse;
 
+/**
+ * @group Config (Sayt haqidagi ma'lumotlar)
+ */
 class ConfigController extends Controller
 {
+    /**
+     *  Config Save
+     *  @authenticated
+     */
     public function store(StoreRequest $request):ConfigResource
     {
         $config = Config::create($request->validated());
         return new ConfigResource($config);
     }
 
+    /**
+     *  Config update
+     *  @urlParam id integer required. Configni id si
+     *  @authenticated
+     */
     public function update($id, StoreRequest $request):ConfigResource
     {
         $config = Config::findOrFail($id);
@@ -23,6 +35,11 @@ class ConfigController extends Controller
         return new ConfigResource($config);
     }
 
+    /**
+     *  Config delete
+     *  @urlParam id integer required. Configni id si
+     *  @authenticated
+     */
     public function destroy($id):JsonResponse
     {
         $config = Config::findOrFail($id);
@@ -30,6 +47,9 @@ class ConfigController extends Controller
         return success();
     }
 
+    /**
+     *  Config list
+     */
     public function index():ConfigResource
     {
         $config = Config::all();

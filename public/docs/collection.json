@@ -1,0 +1,994 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/back.tour.gx.uz\/"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "166e7713-1af3-4d97-bf30-453534ba417d",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"admin@admin.com\",\"password\":\"123456\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "refresh-token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/refresh-token",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/refresh-token"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"refresh_token\":\"AiOiJKV1QiLCJhbGciOiJSUzI1NiJ9\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@authenticated",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Category",
+            "description": "",
+            "item": [
+                {
+                    "name": "Category-listi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/category",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/category"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"nimadir\"}"
+                        },
+                        "description": "@urlParam search string nullable izlash uchun",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Category yaratish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/category",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/category"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"Uzbekistan\",\"name_uz\":\"Uzbekistan\",\"name_en\":\"Uzbekistan\",\"is_active\":\"1\"}"
+                        },
+                        "description": "@authenticated",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Category ni id orqali olish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/category\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/category\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required. Categoryni id si",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Category yangilash(update)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/category\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/category\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"Uzbekistan\",\"name_uz\":\"Uzbekistan\",\"name_en\":\"Uzbekistan\",\"is_active\":\"1\"}"
+                        },
+                        "description": "@urlParam id integer required. Category ni id si"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Category o'chirish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/category\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/category\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required. Categoryni id si"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Config (Sayt haqidagi ma'lumotlar)",
+            "description": "",
+            "item": [
+                {
+                    "name": "Config Save",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/config",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/config"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"key\":\"phone\",\"name_ru\":\"+998945890598\",\"name_uz\":\"+998945890598\",\"name_en\":\"+998945890598\"}"
+                        },
+                        "description": "@authenticated",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Config update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/config\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/config\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the config."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"key\":\"phone\",\"name_ru\":\"+998945890598\",\"name_uz\":\"+998945890598\",\"name_en\":\"+998945890598\"}"
+                        },
+                        "description": "@urlParam id integer required. Configni id si"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Config delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/config\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/config\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the config."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required. Configni id si"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Country",
+            "description": "",
+            "item": [
+                {
+                    "name": "Country ni id orqali olish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/country",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/country"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"admin\"}"
+                        },
+                        "description": "@urlParam search string optional.Izlash(search) uchun",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Country yaratish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/country",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/country"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"Asia\",\"name_uz\":\"Asia\",\"name_en\":\"Asia\",\"is_active\":\"1\"}"
+                        },
+                        "description": "@authenticated",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Country ni id orqali olish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/country\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/country\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required.Country id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Country ni yangilash(update)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/country\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/country\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"Asia\",\"name_uz\":\"Asia\",\"name_en\":\"Asia\",\"is_active\":\"1\"}"
+                        },
+                        "description": "@urlParam id integer required.Country ni id si"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Country ni o'chirish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/country\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/country\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the country."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required.Countryni id si"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Tour",
+            "description": "",
+            "item": [
+                {
+                    "name": "Tour listi && filter bilan",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"country_id\":\"1\",\"sale\":\"1\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 422,
+                            "body": "{\"message\":\"The selected country id is invalid.\",\"errors\":{\"country_id\":[\"The selected country id is invalid.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tour ni id orqali olish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour\/show\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour\/show\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "incidunt",
+                                    "description": "The ID of the show."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required.Tour id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tour popular listi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour\/popular",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour\/popular"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":9,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":20,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T18:36:26.000000Z\",\"updated_at\":\"2023-03-09T18:36:26.000000Z\",\"sale_price\":1997197.6,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":9,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":9,\"images_id\":4}}],\"category\":[]},{\"id\":10,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":null,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T18:37:50.000000Z\",\"updated_at\":\"2023-03-09T18:37:50.000000Z\",\"sale_price\":null,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":10,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":10,\"images_id\":4}}],\"category\":[]},{\"id\":11,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":null,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T20:29:22.000000Z\",\"updated_at\":\"2023-03-09T20:29:22.000000Z\",\"sale_price\":null,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":11,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":11,\"images_id\":4}}],\"category\":[]},{\"id\":12,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":null,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T20:30:38.000000Z\",\"updated_at\":\"2023-03-09T20:30:38.000000Z\",\"sale_price\":null,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":12,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":12,\"images_id\":4}}],\"category\":[]},{\"id\":13,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":null,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T20:30:57.000000Z\",\"updated_at\":\"2023-03-09T20:30:57.000000Z\",\"sale_price\":null,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":13,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":13,\"images_id\":4}}],\"category\":[]},{\"id\":14,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":3,\"sale\":10,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T20:52:34.000000Z\",\"updated_at\":\"2023-03-09T20:52:34.000000Z\",\"sale_price\":998598.8,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":14,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":14,\"images_id\":4}}],\"category\":[{\"id\":1,\"name_ru\":\"rutest\",\"name_uz\":\"u_test\",\"name_en\":\"n_test\",\"is_active\":1,\"created_at\":\"2023-03-09T09:36:47.000000Z\",\"updated_at\":\"2023-03-09T11:02:24.000000Z\",\"pivot\":{\"tours_id\":14,\"category_id\":1}},{\"id\":2,\"name_ru\":\"eeeeeeeeeeeeee\",\"name_uz\":\"hiji\",\"name_en\":\"hbbhj\",\"is_active\":1,\"created_at\":null,\"updated_at\":null,\"pivot\":{\"tours_id\":14,\"category_id\":2}}]},{\"id\":15,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":null,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T21:02:48.000000Z\",\"updated_at\":\"2023-03-09T21:02:48.000000Z\",\"sale_price\":null,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":15,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":15,\"images_id\":4}}],\"category\":[{\"id\":1,\"name_ru\":\"rutest\",\"name_uz\":\"u_test\",\"name_en\":\"n_test\",\"is_active\":1,\"created_at\":\"2023-03-09T09:36:47.000000Z\",\"updated_at\":\"2023-03-09T11:02:24.000000Z\",\"pivot\":{\"tours_id\":15,\"category_id\":1}},{\"id\":2,\"name_ru\":\"eeeeeeeeeeeeee\",\"name_uz\":\"hiji\",\"name_en\":\"hbbhj\",\"is_active\":1,\"created_at\":null,\"updated_at\":null,\"pivot\":{\"tours_id\":15,\"category_id\":2}}]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tour sale listi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour\/sale",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour\/sale"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":8,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":3,\"sale\":20,\"is_active\":1,\"is_popular\":0,\"created_at\":\"2023-03-09T18:32:10.000000Z\",\"updated_at\":\"2023-03-09T18:32:10.000000Z\",\"sale_price\":1997197.6,\"images\":[],\"category\":[]},{\"id\":9,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":1,\"sale\":20,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T18:36:26.000000Z\",\"updated_at\":\"2023-03-09T18:36:26.000000Z\",\"sale_price\":1997197.6,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":9,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":9,\"images_id\":4}}],\"category\":[]},{\"id\":14,\"name_ru\":\"1111\",\"name_uz\":\"1111111\",\"name_en\":\"1111111\",\"description_ru\":\"test decription\",\"description_uz\":\"test decription\",\"description_en\":\"test decription\",\"price\":9985988,\"country_id\":3,\"sale\":10,\"is_active\":1,\"is_popular\":1,\"created_at\":\"2023-03-09T20:52:34.000000Z\",\"updated_at\":\"2023-03-09T20:52:34.000000Z\",\"sale_price\":998598.8,\"images\":[{\"id\":5,\"token\":\"QeOFTlPXVyhyNMO\",\"name\":\"QeOFTlPXVyhyNMO1678384041.png\",\"path\":\"storage\\\/images\\\/QeOFTlPXVyhyNMO1678384041.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:47:21.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":14,\"images_id\":5}},{\"id\":4,\"token\":\"PrcLTCgOpFNgOgY\",\"name\":\"PrcLTCgOpFNgOgY1678383624.png\",\"path\":\"storage\\\/images\\\/PrcLTCgOpFNgOgY1678383624.png\",\"is_active\":0,\"created_at\":\"2023-03-09T12:40:24.000000Z\",\"updated_at\":\"2023-03-09T13:27:29.000000Z\",\"pivot\":{\"tours_id\":14,\"images_id\":4}}],\"category\":[{\"id\":1,\"name_ru\":\"rutest\",\"name_uz\":\"u_test\",\"name_en\":\"n_test\",\"is_active\":1,\"created_at\":\"2023-03-09T09:36:47.000000Z\",\"updated_at\":\"2023-03-09T11:02:24.000000Z\",\"pivot\":{\"tours_id\":14,\"category_id\":1}},{\"id\":2,\"name_ru\":\"eeeeeeeeeeeeee\",\"name_uz\":\"hiji\",\"name_en\":\"hbbhj\",\"is_active\":1,\"created_at\":null,\"updated_at\":null,\"pivot\":{\"tours_id\":14,\"category_id\":2}}]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tour yaratish",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu\",\"name_uz\":\"eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld\",\"name_en\":\"dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr\",\"description_ru\":\"cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs\",\"description_uz\":\"qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu\",\"description_en\":\"dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh\",\"price\":16,\"country_id\":\"est\",\"sale\":19,\"is_active\":\"1\",\"is_popular\":\"0\",\"images_token\":[\"molestias\"],\"category\":[2]}"
+                        },
+                        "description": "@authenticated",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Tour yangilash(update)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tour\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tour\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the tour."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name_ru\":\"Yozgi\",\"name_uz\":\"Yozgi\",\"name_en\":\"Yozgi\",\"description_ru\":\"istalgan matn\",\"description_uz\":\"istalgan matn\",\"description_en\":\"istalgan matn\",\"price\":4587884,\"country_id\":\"1\",\"sale\":15,\"is_active\":1,\"is_popular\":1,\"images_token\":[\"magni\"],\"category\":[9]}"
+                        },
+                        "description": "@urlParam id integer required.Tour id"
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
