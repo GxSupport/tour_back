@@ -20,4 +20,25 @@ class StoreRequest extends FormRequest
             'is_active'=>'nullable|in:0,1'
         ];
     }
+    public function bodyParameters():array
+    {
+        return [
+            'name_ru' => [
+                'description' => 'name RU',
+                'example' => 'Uzbekistan',
+            ],
+            'name_uz' => [
+                'description' => 'name UZ',
+                'example' => 'Uzbekistan',
+            ],
+            'name_en' => [
+                'description' => 'name EN',
+                'example' => 'Uzbekistan',
+            ],
+            'is_active' => [
+                'description' => 'Aktivligi(1-aktiv,0-aktiv emas,default-0)',
+                'example' => '1',
+            ]
+        ];
+    }
 }

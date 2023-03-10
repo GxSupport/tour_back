@@ -31,4 +31,62 @@ class UpdateRequest extends FormRequest
             'category.*'=>'nullable|integer|exists:categories,id'
         ];
     }
+
+    public function bodyParameters():array
+    {
+        return [
+            'name_ru' => [
+                'description' => 'Tour nomi RU',
+                'example' => 'Yozgi',
+            ],
+            'name_uz' => [
+                'description' => 'Tour nomi UZ',
+                'example' => 'Yozgi',
+            ],
+            'name_en' => [
+                'description' => 'Tour nomi EN',
+                'example' => 'Yozgi',
+            ],
+            'description_uz' => [
+                'description' => 'tavsif UZ',
+                'example' => 'istalgan matn',
+            ],
+            'description_ru' => [
+                'description' => 'tavsif RU',
+                'example' => 'istalgan matn',
+            ],
+            'description_en' => [
+                'description' => 'tavsif EN',
+                'example' => 'istalgan matn',
+            ],
+            'price' => [
+                'description' => 'narxi',
+                'example' => '4587884',
+            ],
+            'country_id' => [
+                'description' => 'Country id si',
+                'example' => '1',
+            ],
+            'sale' => [
+                'description' => 'Skidka 15% bo`lsa faqat 15 yuboriladi',
+                'example' => '15',
+            ],
+            'is_active' => [
+                'description' => 'Aktivligi (1-aktiv,0-aktiv emas,default-0)',
+                'example' => '1',
+            ],
+            'is_popular' => [
+                'description' => 'Popularligi (1-popular,0-popular emas,default-0)',
+                'example' => '1',
+            ],
+            'images_token' => [
+                'description' => 'rasmni tokeni array',
+                'example' => ["loijkdwdaijUSnm","BYSunaji78hcdwa"],
+            ],
+            'category' => [
+                'description' => 'Categorylar id si array',
+                'example' => [1,2,3,5],
+            ]
+        ];
+    }
 }

@@ -10,8 +10,14 @@ use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\JsonResponse;
 
+/**
+ * @group Auth
+ */
 class LoginController extends Controller
 {
+    /**
+     *  login
+     */
     public function login(LoginRequest $request)
     {
         $credentials = [
@@ -42,12 +48,18 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     *  logout
+     *  @authenticated
+     */
     public function logout():JsonResponse
     {
         auth()->user()->tokens()->delete();
         return success();
     }
-
+    /**
+     *  refresh-token
+     */
     public function refreshToken(RefreshTokenRequest $request) {
         $client = new Client();
         try {

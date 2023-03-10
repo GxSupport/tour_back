@@ -11,11 +11,25 @@ class LoginRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules():array
     {
         return [
             'email'=>'required|string',
             'password'=>'required|string|min:6',
+        ];
+    }
+
+    public function bodyParameters():array
+    {
+        return [
+            'email' => [
+                'description' => 'Email',
+                'example' => 'admin@admin.com',
+            ],
+            'password' => [
+                'description' => 'Parol',
+                'example' => '123456',
+            ]
         ];
     }
 }

@@ -11,10 +11,20 @@ class SearchRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules():array
     {
         return [
             'search'=>'nullable|string'
+        ];
+    }
+
+    public function bodyParameters():array
+    {
+        return [
+            'search' => [
+                'description' => 'Izlash uchun nimadir',
+                'example' => 'admin',
+            ]
         ];
     }
 }

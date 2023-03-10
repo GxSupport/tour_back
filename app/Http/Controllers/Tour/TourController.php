@@ -9,28 +9,44 @@ use App\Http\Requests\Tour\UpdateRequest;
 use App\Http\Resources\Tour\TourResource;
 use App\Models\Images;
 use App\Models\Tour;
-use Illuminate\Http\Request;
 
+/**
+ * @group Tour
+ */
 class TourController extends Controller
 {
+    /**
+     *  Tour popular listi
+     */
     public function popular()
     {
         $tour = Tour::active()->popular()->with('images','category')->get();
         return new TourResource($tour);
     }
 
+    /**
+     *  Tour sale listi
+     */
     public function sale()
     {
         $tour = Tour::active()->sale()->with('images','category')->get();
         return new TourResource($tour);
     }
 
+    /**
+     *  Tour listi && filter bilan
+     */
     public function index(SearchRequest $request)
     {
         $tour = Tour::active()->filter($request->all())->with('images','category')->get();
         return new TourResource($tour);
     }
 
+    /**
+     *  Tour yangilash(update)
+     *  @urlParam id integer required.Tour id
+     *  @authenticated
+     */
     public function update($id,UpdateRequest $request)
     {
         $tour = Tour::findOrFail($id);
@@ -46,23 +62,31 @@ class TourController extends Controller
         $tour->is_active=$request->is_active;
         $tour->is_popular=$request->is_popular;
         $tour->update();
-        if(isset($request->images_token) && is_null($request->images_token))
+        if(isset($request->images_token) && !is_null($request->images_token))
         {
             $this->attachImages($id,$request->images_token);
         }
-        if(isset($request->category) && is_null($request->category))
+        if(isset($request->category) && !is_null($request->category))
         {
             $this->attachCategory($id,$request->category);
         }
         return $this->show($id);
     }
 
+    /**
+     *  Tour ni id orqali olish
+     *  @urlParam id integer required.Tour id
+     */
     public function show($id)
     {
         $tour = Tour::active()->with('images','category')->find($id);
         return new TourResource($tour);
     }
 
+    /**
+     *  Tour yaratish
+     *  @authenticated
+     */
     public function store(StoreRequest $request)
     {
         $tour = new Tour();
@@ -99,14 +123,20 @@ class TourController extends Controller
     public function getImagesId(array $tokens):array
     {
         $id = [];
-        foreach ($tokens as $token) {
-            $images = Images::where('token',$token)->first();
-            if(!is_null($images)){
-                $images->is_active = 1;
-                $images->update();
-                $id[] = $images->id;
-            }
+        $a=Images::whereIn('token',$tokens);
+        $a->update(['is_active'=>1]);
+        $b = $a->select('id')->get();
+        foreach ($b as $bb){
+            $id[] = $bb->id;
         }
+//        foreach ($tokens as $token) {
+//            $images = Images::where('token',$token)->first();
+//            if(!is_null($images)){
+//                $images->is_active = 1;
+//                $images->update();
+//                $id[] = $images->id;
+//            }
+//        }
         return $id;
     }
 

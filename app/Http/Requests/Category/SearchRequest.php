@@ -17,4 +17,13 @@ class SearchRequest extends FormRequest
             'search'=>'nullable|string'
         ];
     }
+    public function bodyParameters():array
+    {
+        return [
+            'search' => [
+                'description' => 'Izlash uchun key',
+                'example' => 'nimadir',
+            ]
+        ];
+    }
 }
