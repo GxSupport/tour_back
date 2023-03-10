@@ -15,18 +15,10 @@ return new class extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
-            $table->string('second_phone')->nullable();
-            $table->text('address_ru')->nullable();
-            $table->text('address_uz')->nullable();
-            $table->text('address_en')->nullable();
-            $table->text('work_time')->nullable();
-            $table->string('email')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('telegram')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('tiktok')->nullable();
+            $table->string('key');
+            $table->text('name_uz');
+            $table->text('name_ru');
+            $table->text('name_en');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Images\UploadController;
 use App\Http\Controllers\Tour\TourController;
@@ -34,8 +35,10 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout','logout');
         Route::post('refresh-token','refreshToken');
     });
+
     Route::post('upload',[UploadController::class,'upload']);
     Route::apiResource('tour',TourController::class,['only' => ['store','update']]);
     Route::apiResource('category',CategoryController::class,['except' => 'index']);
     Route::apiResource('country',CountryController::class,['except' => 'index']);
+    Route::apiResource('config', ConfigController::class,['except' => 'index']);
 });
