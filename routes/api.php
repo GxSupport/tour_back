@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Country\CountryController;
+use App\Http\Controllers\Feedback\FeedbackController;
 use App\Http\Controllers\Images\UploadController;
 use App\Http\Controllers\Tour\TourController;
 use Illuminate\Support\Facades\Route;
@@ -29,12 +30,14 @@ Route::prefix('tour')->controller(TourController::class)->group(function (){
     Route::get('sale','sale');
 });
 
+Route::apiResource('feedback', FeedbackController::class,['except' => 'update']);
 Route::post('refresh-token',[LoginController::class,'refreshToken']);
 Route::group(['middleware' => 'auth:api'], function () {
     Route::controller(LoginController::class)->group(function () {
         Route::get('logout','logout');
     });
 
+    Route::post('feedback-active/{id}',[FeedbackController::class,'active']);
     Route::post('upload',[UploadController::class,'upload']);
     Route::apiResource('tour',TourController::class,['only' => ['store','update']]);
     Route::apiResource('category',CategoryController::class,['except' => 'index']);
