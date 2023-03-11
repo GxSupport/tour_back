@@ -465,7 +465,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the config.'
-        example: 13
+        example: 20
         required: true
         schema:
           type: integer
@@ -682,6 +682,356 @@ paths:
         required: true
         schema:
           type: integer
+  /api/feedback:
+    get:
+      summary: 'feedback list'
+      operationId: feedbackList
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 2
+                      phone: '+998945890598'
+                      first_name: ibrohim
+                      last_name: xolboyev
+                      is_active: 0
+                      comment: nimadirlar
+                      created_at: '2023-03-11T11:55:03.000000Z'
+                      updated_at: '2023-03-11T12:12:12.000000Z'
+                    -
+                      id: 3
+                      phone: '+998945890598'
+                      first_name: ibrohim
+                      last_name: xolboyev
+                      is_active: 0
+                      comment: nimadirlar
+                      created_at: '2023-03-11T11:55:24.000000Z'
+                      updated_at: '2023-03-11T11:55:24.000000Z'
+                    -
+                      id: 4
+                      phone: '+998945890598'
+                      first_name: ibrohim
+                      last_name: xolboyev
+                      is_active: 0
+                      comment: nimadirlar
+                      created_at: '2023-03-11T11:55:40.000000Z'
+                      updated_at: '2023-03-11T11:55:40.000000Z'
+                    -
+                      id: 5
+                      phone: '+998945890598'
+                      first_name: ibrohim
+                      last_name: xolboyev
+                      is_active: 0
+                      comment: nimadirlar
+                      created_at: '2023-03-11T11:56:46.000000Z'
+                      updated_at: '2023-03-11T11:56:46.000000Z'
+                    -
+                      id: 6
+                      phone: '+998945890598'
+                      first_name: ibrohim
+                      last_name: xolboyev
+                      is_active: 0
+                      comment: nimadirlar
+                      created_at: '2023-03-11T11:57:11.000000Z'
+                      updated_at: '2023-03-11T11:57:11.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        phone: '+998945890598'
+                        first_name: ibrohim
+                        last_name: xolboyev
+                        is_active: 0
+                        comment: nimadirlar
+                        created_at: '2023-03-11T11:55:03.000000Z'
+                        updated_at: '2023-03-11T12:12:12.000000Z'
+                      -
+                        id: 3
+                        phone: '+998945890598'
+                        first_name: ibrohim
+                        last_name: xolboyev
+                        is_active: 0
+                        comment: nimadirlar
+                        created_at: '2023-03-11T11:55:24.000000Z'
+                        updated_at: '2023-03-11T11:55:24.000000Z'
+                      -
+                        id: 4
+                        phone: '+998945890598'
+                        first_name: ibrohim
+                        last_name: xolboyev
+                        is_active: 0
+                        comment: nimadirlar
+                        created_at: '2023-03-11T11:55:40.000000Z'
+                        updated_at: '2023-03-11T11:55:40.000000Z'
+                      -
+                        id: 5
+                        phone: '+998945890598'
+                        first_name: ibrohim
+                        last_name: xolboyev
+                        is_active: 0
+                        comment: nimadirlar
+                        created_at: '2023-03-11T11:56:46.000000Z'
+                        updated_at: '2023-03-11T11:56:46.000000Z'
+                      -
+                        id: 6
+                        phone: '+998945890598'
+                        first_name: ibrohim
+                        last_name: xolboyev
+                        is_active: 0
+                        comment: nimadirlar
+                        created_at: '2023-03-11T11:57:11.000000Z'
+                        updated_at: '2023-03-11T11:57:11.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        phone:
+                          type: string
+                          example: '+998945890598'
+                        first_name:
+                          type: string
+                          example: ibrohim
+                        last_name:
+                          type: string
+                          example: xolboyev
+                        is_active:
+                          type: integer
+                          example: 0
+                        comment:
+                          type: string
+                          example: nimadirlar
+                        created_at:
+                          type: string
+                          example: '2023-03-11T11:55:03.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-03-11T12:12:12.000000Z'
+      tags:
+        - Feedback
+      security: []
+    post:
+      summary: 'feedback save'
+      operationId: feedbackSave
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: 'telefon. Must be at least 12 characters. Must not be greater than 13 characters.'
+                  example: '+998945890598'
+                first_name:
+                  type: string
+                  description: 'ism. Must be at least 2 characters.'
+                  example: ibrohim
+                last_name:
+                  type: string
+                  description: 'familiya. Must be at least 2 characters.'
+                  example: xolboyev
+                comment:
+                  type: string
+                  description: 'qayerga bormoqchi nima qilmoqchi. Must be at least 2 characters.'
+                  example: 'istalgan text'
+              required:
+                - phone
+                - first_name
+                - last_name
+                - comment
+      security: []
+  '/api/feedback/{id}':
+    get:
+      summary: 'feedback ni id orqali olish'
+      operationId: feedbackNiIdOrqaliOlish
+      description: '@urlParam id integer required. feedback id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 2
+                    phone: '+998945890598'
+                    first_name: ibrohim
+                    last_name: xolboyev
+                    is_active: 0
+                    comment: nimadirlar
+                    created_at: '2023-03-11T11:55:03.000000Z'
+                    updated_at: '2023-03-11T12:12:12.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      phone:
+                        type: string
+                        example: '+998945890598'
+                      first_name:
+                        type: string
+                        example: ibrohim
+                      last_name:
+                        type: string
+                        example: xolboyev
+                      is_active:
+                        type: integer
+                        example: 0
+                      comment:
+                        type: string
+                        example: nimadirlar
+                      created_at:
+                        type: string
+                        example: '2023-03-11T11:55:03.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-03-11T12:12:12.000000Z'
+      tags:
+        - Feedback
+      security: []
+    delete:
+      summary: 'feedback delete'
+      operationId: feedbackDelete
+      description: '@urlParam id integer required. feedback id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Feedback
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the feedback.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  '/api/feedback-active/{id}':
+    post:
+      summary: 'feedback active-disactive'
+      operationId: feedbackActiveDisactive
+      description: '@urlParam id integer required. feedback id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_active:
+                  type: integer
+                  description: 'gaplashilgan ariza bilan yangi arizani farqlash uchun(default-0, klient bilan gaplashilgan bo`lsa is_active-1 qilish kerak). Must be one of <code>0</code> or <code>1</code>.'
+                  example: 1
+              required:
+                - is_active
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the feedback active.'
+        example: dolores
+        required: true
+        schema:
+          type: string
   /api/tour:
     get:
       summary: 'Tour listi && filter bilan'
@@ -781,39 +1131,39 @@ paths:
                 name_ru:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu
+                  example: rndvsacwlflgazufqumwoxhaxezqaykalikpnyu
                 name_uz:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld
+                  example: knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc
                 name_en:
                   type: string
                   description: 'Must be at least 2 characters.'
-                  example: dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr
+                  example: mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp
                 description_ru:
                   type: string
                   description: 'Must be at least 10 characters.'
-                  example: cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs
+                  example: ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta
                 description_uz:
                   type: string
                   description: 'Must be at least 10 characters.'
-                  example: qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu
+                  example: wewusnnwsgtkbawifktsumyfywkgfwikkmofh
                 description_en:
                   type: string
                   description: 'Must be at least 10 characters.'
-                  example: dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh
+                  example: glmzbhksikhnsjtzhhqrnwtwtd
                 price:
                   type: number
                   description: 'Must be at least 1. Must not be greater than 99999999999999.99.'
-                  example: 16
+                  example: 9
                 country_id:
                   type: string
                   description: ''
-                  example: est
+                  example: nihil
                 sale:
                   type: number
                   description: 'Must be at least 1. Must not be greater than 99.'
-                  example: 19
+                  example: 8
                 is_active:
                   type: integer
                   description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -826,14 +1176,14 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - molestias
+                    - dolorem
                   items:
                     type: string
                 category:
                   type: array
                   description: ''
                   example:
-                    - 2
+                    - 3
                   items:
                     type: integer
               required:
@@ -889,7 +1239,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the show.'
-        example: incidunt
+        example: eos
         required: true
         schema:
           type: string
@@ -2094,14 +2444,14 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - magni
+                    - exercitationem
                   items:
                     type: string
                 category:
                   type: array
                   description: ''
                   example:
-                    - 9
+                    - 14
                   items:
                     type: integer
               required:
@@ -2134,6 +2484,9 @@ tags:
     description: ''
   -
     name: Country
+    description: ''
+  -
+    name: Feedback
     description: ''
   -
     name: Tour

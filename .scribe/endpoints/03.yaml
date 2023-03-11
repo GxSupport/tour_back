@@ -86,11 +86,11 @@ endpoints:
         name: id
         description: 'The ID of the show.'
         required: true
-        example: incidunt
+        example: eos
         type: string
         custom: []
     cleanUrlParameters:
-      id: incidunt
+      id: eos
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -221,63 +221,63 @@ endpoints:
         name: name_ru
         description: 'Must be at least 2 characters.'
         required: true
-        example: uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu
+        example: rndvsacwlflgazufqumwoxhaxezqaykalikpnyu
         type: string
         custom: []
       name_uz:
         name: name_uz
         description: 'Must be at least 2 characters.'
         required: true
-        example: eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld
+        example: knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc
         type: string
         custom: []
       name_en:
         name: name_en
         description: 'Must be at least 2 characters.'
         required: true
-        example: dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr
+        example: mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp
         type: string
         custom: []
       description_ru:
         name: description_ru
         description: 'Must be at least 10 characters.'
         required: true
-        example: cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs
+        example: ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta
         type: string
         custom: []
       description_uz:
         name: description_uz
         description: 'Must be at least 10 characters.'
         required: true
-        example: qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu
+        example: wewusnnwsgtkbawifktsumyfywkgfwikkmofh
         type: string
         custom: []
       description_en:
         name: description_en
         description: 'Must be at least 10 characters.'
         required: true
-        example: dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh
+        example: glmzbhksikhnsjtzhhqrnwtwtd
         type: string
         custom: []
       price:
         name: price
         description: 'Must be at least 1. Must not be greater than 99999999999999.99.'
         required: true
-        example: 16
+        example: 9
         type: number
         custom: []
       country_id:
         name: country_id
         description: ''
         required: true
-        example: est
+        example: nihil
         type: string
         custom: []
       sale:
         name: sale
         description: 'Must be at least 1. Must not be greater than 99.'
         required: false
-        example: 19
+        example: 8
         type: number
         custom: []
       is_active:
@@ -299,7 +299,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - molestias
+          - dolorem
         type: 'string[]'
         custom: []
       category:
@@ -307,25 +307,25 @@ endpoints:
         description: ''
         required: true
         example:
-          - 2
+          - 3
         type: 'integer[]'
         custom: []
     cleanBodyParameters:
-      name_ru: uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu
-      name_uz: eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld
-      name_en: dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr
-      description_ru: cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs
-      description_uz: qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu
-      description_en: dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh
-      price: 16
-      country_id: est
-      sale: 19
+      name_ru: rndvsacwlflgazufqumwoxhaxezqaykalikpnyu
+      name_uz: knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc
+      name_en: mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp
+      description_ru: ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta
+      description_uz: wewusnnwsgtkbawifktsumyfywkgfwikkmofh
+      description_en: glmzbhksikhnsjtzhhqrnwtwtd
+      price: 9
+      country_id: nihil
+      sale: 8
       is_active: '1'
       is_popular: '0'
       images_token:
-        - molestias
+        - dolorem
       category:
-        - 2
+        - 3
     fileParameters: []
     responses: []
     responseFields: []
@@ -446,7 +446,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - magni
+          - exercitationem
         type: 'string[]'
         custom: []
       category:
@@ -454,7 +454,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - 9
+          - 14
         type: 'integer[]'
         custom: []
     cleanBodyParameters:
@@ -470,9 +470,9 @@ endpoints:
       is_active: 1
       is_popular: 1
       images_token:
-        - magni
+        - exercitationem
       category:
-        - 9
+        - 14
     fileParameters: []
     responses: []
     responseFields: []
