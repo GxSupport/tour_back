@@ -142,6 +142,28 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-feedback" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="feedback">
+                    <a href="#feedback">Feedback</a>
+                </li>
+                                    <ul id="tocify-subheader-feedback" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="feedback-GETapi-feedback">
+                                <a href="#feedback-GETapi-feedback">feedback list</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="feedback-POSTapi-feedback">
+                                <a href="#feedback-POSTapi-feedback">feedback save</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="feedback-GETapi-feedback--id-">
+                                <a href="#feedback-GETapi-feedback--id-">feedback ni id orqali olish</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="feedback-DELETEapi-feedback--id-">
+                                <a href="#feedback-DELETEapi-feedback--id-">feedback delete</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="feedback-POSTapi-feedback-active--id-">
+                                <a href="#feedback-POSTapi-feedback-active--id-">feedback active-disactive</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-tour" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="tour">
                     <a href="#tour">Tour</a>
@@ -1468,7 +1490,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://back.tour.gx.uz/api/config/13" \
+    "http://back.tour.gx.uz/api/config/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1482,7 +1504,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://back.tour.gx.uz/api/config/13"
+    "http://back.tour.gx.uz/api/config/20"
 );
 
 const headers = {
@@ -1579,10 +1601,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-config--id-"
-               value="13"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the config. Example: <code>13</code></p>
+<p>The ID of the config. Example: <code>20</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1645,14 +1667,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://back.tour.gx.uz/api/config/13" \
+    "http://back.tour.gx.uz/api/config/3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://back.tour.gx.uz/api/config/13"
+    "http://back.tour.gx.uz/api/config/3"
 );
 
 const headers = {
@@ -1737,10 +1759,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-config--id-"
-               value="13"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the config. Example: <code>13</code></p>
+<p>The ID of the config. Example: <code>3</code></p>
             </div>
                     </form>
 
@@ -2465,6 +2487,723 @@ fetch(url, {
             </div>
                     </form>
 
+                <h1 id="feedback">Feedback</h1>
+
+    
+
+                                <h2 id="feedback-GETapi-feedback">feedback list</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-feedback">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://back.tour.gx.uz/api/feedback" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://back.tour.gx.uz/api/feedback"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-feedback">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 53
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;phone&quot;: &quot;+998945890598&quot;,
+            &quot;first_name&quot;: &quot;ibrohim&quot;,
+            &quot;last_name&quot;: &quot;xolboyev&quot;,
+            &quot;is_active&quot;: 0,
+            &quot;comment&quot;: &quot;nimadirlar&quot;,
+            &quot;created_at&quot;: &quot;2023-03-11T11:55:03.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-03-11T12:12:12.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;phone&quot;: &quot;+998945890598&quot;,
+            &quot;first_name&quot;: &quot;ibrohim&quot;,
+            &quot;last_name&quot;: &quot;xolboyev&quot;,
+            &quot;is_active&quot;: 0,
+            &quot;comment&quot;: &quot;nimadirlar&quot;,
+            &quot;created_at&quot;: &quot;2023-03-11T11:55:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-03-11T11:55:24.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;phone&quot;: &quot;+998945890598&quot;,
+            &quot;first_name&quot;: &quot;ibrohim&quot;,
+            &quot;last_name&quot;: &quot;xolboyev&quot;,
+            &quot;is_active&quot;: 0,
+            &quot;comment&quot;: &quot;nimadirlar&quot;,
+            &quot;created_at&quot;: &quot;2023-03-11T11:55:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-03-11T11:55:40.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;phone&quot;: &quot;+998945890598&quot;,
+            &quot;first_name&quot;: &quot;ibrohim&quot;,
+            &quot;last_name&quot;: &quot;xolboyev&quot;,
+            &quot;is_active&quot;: 0,
+            &quot;comment&quot;: &quot;nimadirlar&quot;,
+            &quot;created_at&quot;: &quot;2023-03-11T11:56:46.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-03-11T11:56:46.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;phone&quot;: &quot;+998945890598&quot;,
+            &quot;first_name&quot;: &quot;ibrohim&quot;,
+            &quot;last_name&quot;: &quot;xolboyev&quot;,
+            &quot;is_active&quot;: 0,
+            &quot;comment&quot;: &quot;nimadirlar&quot;,
+            &quot;created_at&quot;: &quot;2023-03-11T11:57:11.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-03-11T11:57:11.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-feedback" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-feedback"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-feedback" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-feedback" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-feedback"></code></pre>
+</span>
+<form id="form-GETapi-feedback" data-method="GET"
+      data-path="api/feedback"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-feedback', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-feedback"
+                    onclick="tryItOut('GETapi-feedback');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-feedback"
+                    onclick="cancelTryOut('GETapi-feedback');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-feedback" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/feedback</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-feedback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-feedback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="feedback-POSTapi-feedback">feedback save</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-feedback">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://back.tour.gx.uz/api/feedback" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"phone\": \"+998945890598\",
+    \"first_name\": \"ibrohim\",
+    \"last_name\": \"xolboyev\",
+    \"comment\": \"istalgan text\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://back.tour.gx.uz/api/feedback"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "phone": "+998945890598",
+    "first_name": "ibrohim",
+    "last_name": "xolboyev",
+    "comment": "istalgan text"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-feedback">
+</span>
+<span id="execution-results-POSTapi-feedback" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-feedback"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-feedback" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-feedback" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-feedback"></code></pre>
+</span>
+<form id="form-POSTapi-feedback" data-method="POST"
+      data-path="api/feedback"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-feedback', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-feedback"
+                    onclick="tryItOut('POSTapi-feedback');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-feedback"
+                    onclick="cancelTryOut('POSTapi-feedback');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-feedback" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/feedback</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-feedback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-feedback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="phone"                data-endpoint="POSTapi-feedback"
+               value="+998945890598"
+               data-component="body">
+    <br>
+<p>telefon. Must be at least 12 characters. Must not be greater than 13 characters. Example: <code>+998945890598</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="first_name"                data-endpoint="POSTapi-feedback"
+               value="ibrohim"
+               data-component="body">
+    <br>
+<p>ism. Must be at least 2 characters. Example: <code>ibrohim</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="last_name"                data-endpoint="POSTapi-feedback"
+               value="xolboyev"
+               data-component="body">
+    <br>
+<p>familiya. Must be at least 2 characters. Example: <code>xolboyev</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="comment"                data-endpoint="POSTapi-feedback"
+               value="istalgan text"
+               data-component="body">
+    <br>
+<p>qayerga bormoqchi nima qilmoqchi. Must be at least 2 characters. Example: <code>istalgan text</code></p>
+        </div>
+        </form>
+
+                    <h2 id="feedback-GETapi-feedback--id-">feedback ni id orqali olish</h2>
+
+<p>
+</p>
+
+<p>@urlParam id integer required. feedback id</p>
+
+<span id="example-requests-GETapi-feedback--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://back.tour.gx.uz/api/feedback/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://back.tour.gx.uz/api/feedback/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-feedback--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 52
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;phone&quot;: &quot;+998945890598&quot;,
+        &quot;first_name&quot;: &quot;ibrohim&quot;,
+        &quot;last_name&quot;: &quot;xolboyev&quot;,
+        &quot;is_active&quot;: 0,
+        &quot;comment&quot;: &quot;nimadirlar&quot;,
+        &quot;created_at&quot;: &quot;2023-03-11T11:55:03.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-03-11T12:12:12.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-feedback--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-feedback--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-feedback--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-feedback--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-feedback--id-"></code></pre>
+</span>
+<form id="form-GETapi-feedback--id-" data-method="GET"
+      data-path="api/feedback/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-feedback--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-feedback--id-"
+                    onclick="tryItOut('GETapi-feedback--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-feedback--id-"
+                    onclick="cancelTryOut('GETapi-feedback--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-feedback--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/feedback/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-feedback--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-feedback--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-feedback--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the feedback. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="feedback-DELETEapi-feedback--id-">feedback delete</h2>
+
+<p>
+</p>
+
+<p>@urlParam id integer required. feedback id</p>
+
+<span id="example-requests-DELETEapi-feedback--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://back.tour.gx.uz/api/feedback/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://back.tour.gx.uz/api/feedback/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-feedback--id-">
+</span>
+<span id="execution-results-DELETEapi-feedback--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-feedback--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-feedback--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-feedback--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-feedback--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-feedback--id-" data-method="DELETE"
+      data-path="api/feedback/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-feedback--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-feedback--id-"
+                    onclick="tryItOut('DELETEapi-feedback--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-feedback--id-"
+                    onclick="cancelTryOut('DELETEapi-feedback--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-feedback--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/feedback/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi-feedback--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi-feedback--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="DELETEapi-feedback--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the feedback. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="feedback-POSTapi-feedback-active--id-">feedback active-disactive</h2>
+
+<p>
+</p>
+
+<p>@urlParam id integer required. feedback id</p>
+
+<span id="example-requests-POSTapi-feedback-active--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://back.tour.gx.uz/api/feedback-active/dolores" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"is_active\": 1
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://back.tour.gx.uz/api/feedback-active/dolores"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "is_active": 1
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-feedback-active--id-">
+</span>
+<span id="execution-results-POSTapi-feedback-active--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-feedback-active--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-feedback-active--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-feedback-active--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-feedback-active--id-"></code></pre>
+</span>
+<form id="form-POSTapi-feedback-active--id-" data-method="POST"
+      data-path="api/feedback-active/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-feedback-active--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-feedback-active--id-"
+                    onclick="tryItOut('POSTapi-feedback-active--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-feedback-active--id-"
+                    onclick="cancelTryOut('POSTapi-feedback-active--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-feedback-active--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/feedback-active/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-feedback-active--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-feedback-active--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-feedback-active--id-"
+               value="dolores"
+               data-component="url">
+    <br>
+<p>The ID of the feedback active. Example: <code>dolores</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="is_active"                data-endpoint="POSTapi-feedback-active--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>gaplashilgan ariza bilan yangi arizani farqlash uchun(default-0, klient bilan gaplashilgan bo<code>lsa is_active-1 qilish kerak). Must be one of &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;1&lt;/code&gt;. Example:</code>1`</p>
+        </div>
+        </form>
+
                 <h1 id="tour">Tour</h1>
 
     
@@ -2650,14 +3389,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://back.tour.gx.uz/api/tour/show/incidunt" \
+    --get "http://back.tour.gx.uz/api/tour/show/eos" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://back.tour.gx.uz/api/tour/show/incidunt"
+    "http://back.tour.gx.uz/api/tour/show/eos"
 );
 
 const headers = {
@@ -2760,10 +3499,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="GETapi-tour-show--id-"
-               value="incidunt"
+               value="eos"
                data-component="url">
     <br>
-<p>The ID of the show. Example: <code>incidunt</code></p>
+<p>The ID of the show. Example: <code>eos</code></p>
             </div>
                     </form>
 
@@ -3536,22 +4275,22 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name_ru\": \"uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu\",
-    \"name_uz\": \"eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld\",
-    \"name_en\": \"dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr\",
-    \"description_ru\": \"cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs\",
-    \"description_uz\": \"qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu\",
-    \"description_en\": \"dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh\",
-    \"price\": 16,
-    \"country_id\": \"est\",
-    \"sale\": 19,
+    \"name_ru\": \"rndvsacwlflgazufqumwoxhaxezqaykalikpnyu\",
+    \"name_uz\": \"knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc\",
+    \"name_en\": \"mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp\",
+    \"description_ru\": \"ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta\",
+    \"description_uz\": \"wewusnnwsgtkbawifktsumyfywkgfwikkmofh\",
+    \"description_en\": \"glmzbhksikhnsjtzhhqrnwtwtd\",
+    \"price\": 9,
+    \"country_id\": \"nihil\",
+    \"sale\": 8,
     \"is_active\": \"1\",
     \"is_popular\": \"0\",
     \"images_token\": [
-        \"molestias\"
+        \"dolorem\"
     ],
     \"category\": [
-        2
+        3
     ]
 }"
 </code></pre></div>
@@ -3568,22 +4307,22 @@ const headers = {
 };
 
 let body = {
-    "name_ru": "uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu",
-    "name_uz": "eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld",
-    "name_en": "dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr",
-    "description_ru": "cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs",
-    "description_uz": "qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu",
-    "description_en": "dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh",
-    "price": 16,
-    "country_id": "est",
-    "sale": 19,
+    "name_ru": "rndvsacwlflgazufqumwoxhaxezqaykalikpnyu",
+    "name_uz": "knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc",
+    "name_en": "mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp",
+    "description_ru": "ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta",
+    "description_uz": "wewusnnwsgtkbawifktsumyfywkgfwikkmofh",
+    "description_en": "glmzbhksikhnsjtzhhqrnwtwtd",
+    "price": 9,
+    "country_id": "nihil",
+    "sale": 8,
     "is_active": "1",
     "is_popular": "0",
     "images_token": [
-        "molestias"
+        "dolorem"
     ],
     "category": [
-        2
+        3
     ]
 };
 
@@ -3665,10 +4404,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name_ru"                data-endpoint="POSTapi-tour"
-               value="uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu"
+               value="rndvsacwlflgazufqumwoxhaxezqaykalikpnyu"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>uwftduiejfmaaikvukdaegjoaexacdujfklwjvflyafloaogxkrpu</code></p>
+<p>Must be at least 2 characters. Example: <code>rndvsacwlflgazufqumwoxhaxezqaykalikpnyu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name_uz</code></b>&nbsp;&nbsp;
@@ -3676,10 +4415,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name_uz"                data-endpoint="POSTapi-tour"
-               value="eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld"
+               value="knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>eomekvegajkimthpzvenoclvjvirvxpnuaqmkjwrlhseiuckfnbrjkhqzfeyopzdhjidsdpopld</code></p>
+<p>Must be at least 2 characters. Example: <code>knkiytjrqhwurfxgovzukefygmigsehccwhlnbwyoehndkeudedslhptadbiygokpbjwhhoqoqsjaodoiphdbhc</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name_en</code></b>&nbsp;&nbsp;
@@ -3687,10 +4426,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name_en"                data-endpoint="POSTapi-tour"
-               value="dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr"
+               value="mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>dcekgapkodglhqdnkefgjupfckfftvvqdbigxfphljdcgzxevzcynqaioexahbvlymr</code></p>
+<p>Must be at least 2 characters. Example: <code>mhywhxdgfnbqpmalzeeefjcjcwlpgxzjreamjiexxfp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description_ru</code></b>&nbsp;&nbsp;
@@ -3698,10 +4437,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="description_ru"                data-endpoint="POSTapi-tour"
-               value="cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs"
+               value="ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta"
                data-component="body">
     <br>
-<p>Must be at least 10 characters. Example: <code>cpuijssszwxlqtjdguketuedeyudsrjnizdsazmiqxrqmpxwtqunujs</code></p>
+<p>Must be at least 10 characters. Example: <code>ixgoesztdeeznxtttinchorqppgibagjusmaxivpakpcqjkqulnanbwnmzvfluxbdnjlynwpjqhysfglta</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description_uz</code></b>&nbsp;&nbsp;
@@ -3709,10 +4448,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="description_uz"                data-endpoint="POSTapi-tour"
-               value="qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu"
+               value="wewusnnwsgtkbawifktsumyfywkgfwikkmofh"
                data-component="body">
     <br>
-<p>Must be at least 10 characters. Example: <code>qwzrkjmwnreskxinzxhwdnguzxcxqigtcjggqqgxxjvzvkqbsqfabtjbifcosbqrtcvapucqxlzoljaayu</code></p>
+<p>Must be at least 10 characters. Example: <code>wewusnnwsgtkbawifktsumyfywkgfwikkmofh</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description_en</code></b>&nbsp;&nbsp;
@@ -3720,10 +4459,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="description_en"                data-endpoint="POSTapi-tour"
-               value="dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh"
+               value="glmzbhksikhnsjtzhhqrnwtwtd"
                data-component="body">
     <br>
-<p>Must be at least 10 characters. Example: <code>dkyswnakngioabpucpzyixvaodhghuqvbczpzhtbmuqukotmxislkgdwjmh</code></p>
+<p>Must be at least 10 characters. Example: <code>glmzbhksikhnsjtzhhqrnwtwtd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -3731,10 +4470,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="price"                data-endpoint="POSTapi-tour"
-               value="16"
+               value="9"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 99999999999999.99. Example: <code>16</code></p>
+<p>Must be at least 1. Must not be greater than 99999999999999.99. Example: <code>9</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_id</code></b>&nbsp;&nbsp;
@@ -3742,10 +4481,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="country_id"                data-endpoint="POSTapi-tour"
-               value="est"
+               value="nihil"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sale</code></b>&nbsp;&nbsp;
@@ -3753,10 +4492,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="sale"                data-endpoint="POSTapi-tour"
-               value="19"
+               value="8"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 99. Example: <code>19</code></p>
+<p>Must be at least 1. Must not be greater than 99. Example: <code>8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -3838,10 +4577,10 @@ fetch(url, {
     \"is_active\": 1,
     \"is_popular\": 1,
     \"images_token\": [
-        \"magni\"
+        \"exercitationem\"
     ],
     \"category\": [
-        9
+        14
     ]
 }"
 </code></pre></div>
@@ -3870,10 +4609,10 @@ let body = {
     "is_active": 1,
     "is_popular": 1,
     "images_token": [
-        "magni"
+        "exercitationem"
     ],
     "category": [
-        9
+        14
     ]
 };
 
