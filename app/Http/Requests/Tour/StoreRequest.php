@@ -21,7 +21,7 @@ class StoreRequest extends FormRequest
             'description_uz'=>'required|string|min:10',
             'description_en'=>'required|string|min:10',
             'price'=>'required|numeric|min:1|max:99999999999999.99',
-            'country_id'=>'required|exists:categories,id',
+            'country_id'=>'required|exists:countries,id',
             'sale'=>'nullable|numeric|min:1|max:99',
             'is_active'=>'nullable|integer|in:0,1',
             'is_popular'=>'nullable|integer|in:0,1',
